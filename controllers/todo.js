@@ -116,9 +116,4 @@ exports.updateTodoById = async (req, res , next) => {
         res.status(500).json({success : false , data : false})
 
     }
-
-   
-
-
-    // const updatedTodo = await 
 }
