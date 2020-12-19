@@ -10,15 +10,20 @@ const TodoSchema = new Schema({
     },
     nestedTodoList : [
         {
-            id:{
-                type : Schema.Types.ObjectId
-            },
             title : {
                 type : String,
                 required : true
             },
-            date : {
+            createdDate : {
                 type : Date,
+                default : Date.now
+            },
+            markAsDone : {
+                type : Boolean,
+                default : false
+            },
+            dueDate : {
+                type : Date ,
                 default : Date.now
             }
         }
