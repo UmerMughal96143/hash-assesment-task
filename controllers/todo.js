@@ -109,6 +109,7 @@ exports.newTaskInExistedTodoList = async (req, res, next) => {
     }
     let newTaskInExistingTodo = {
       title: req.body.title,
+      markAsDone : req.body.markAsDone ? req.body.markAsDone : false
     };
     todo.nestedTodoList.unshift(newTaskInExistingTodo);
     await todo.save();
@@ -164,6 +165,7 @@ exports.updateNestedTasks = async (req, res, next) => {
       {
         $set: {
           "nestedTodoList.$.title": req.body.title,
+          "nestedTodoList.$.markAsDone": req.body.markAsDone ? req.body.markAsDone : false,
         },
       }
     );
