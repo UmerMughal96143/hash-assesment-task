@@ -30,7 +30,9 @@ exports.postTasks = async (req, res, next) => {
     });
 
     let todo = await newTodo.save();
-    res.status(200).json({ success: true, todo });
+    let AllTodos = await Todo.find();
+
+    res.status(200).json(AllTodos);
   } catch (err) {
     console.log(err);
     res.status(500).json({ success: false, data: false });
@@ -64,7 +66,9 @@ exports.deleteTodoById = async (req, res, next) => {
     }
     await todo.remove();
 
-    res.status(200).json({ success: true, msg: "Successfully Deleted List" });
+    let remaningTodos = await Todo.find();
+
+    res.status(200).json({ success: true, todos: remaningTodos });
   } catch (err) {
     console.log(err);
     return res.status(500).json({ success: false, data: false });
@@ -88,7 +92,8 @@ exports.updateTodoById = async (req, res, next) => {
           new: true,
         }
       );
-      return res.status(200).json({ success: true, todo });
+      let updatedResult = await Todo.find();
+      return res.status(200).json(updatedResult);
     } else {
       return res.status(404).json({ success: false, data: false });
     }
@@ -109,11 +114,14 @@ exports.newTaskInExistedTodoList = async (req, res, next) => {
     }
     let newTaskInExistingTodo = {
       title: req.body.title,
-      markAsDone : req.body.markAsDone ? req.body.markAsDone : false
+      markAsDone: req.body.markAsDone ? req.body.markAsDone : false,
+      dueDate : req.body.dueDate
     };
     todo.nestedTodoList.unshift(newTaskInExistingTodo);
     await todo.save();
-    res.status(200).json({ success: true, newTaskInExistingTodo });
+    let nestedTaskResult = await Todo.findById(req.params.todo_id)
+      return res.status(200).json(nestedTaskResult.nestedTodoList);
+    // res.status(200).json({ success: true, newTaskInExistingTodo });
   } catch (err) {
     console.log(err);
     res.status(500).json({ success: false, data: false });
@@ -145,8 +153,6 @@ exports.deleteNestedTask = async (req, res, next) => {
   }
 };
 
-
-
 //UPDATE NESTED TASKS BY ID
 
 exports.updateNestedTasks = async (req, res, next) => {
@@ -164,13 +170,17 @@ exports.updateNestedTasks = async (req, res, next) => {
       },
       {
         $set: {
-          "nestedTodoList.$.title": req.body.title,
-          "nestedTodoList.$.markAsDone": req.body.markAsDone ? req.body.markAsDone : false,
+          "nestedTodoList.$.title": req.body.title ? req.body.title : existingTodo.nestedTodoList[0].title,
+          "nestedTodoList.$.markAsDone": req.body.markAsDone
+            ? req.body.markAsDone
+            : existingTodo.nestedTodoList[0].markAsDone,
         },
       }
     );
+    const todo = await Todo.findById(req.params.todo_id);
 
-    res.status(200).json({ success: true, updatedTask });
+
+    res.status(200).json({ success: true, todo });
   } catch (err) {
     console.log(err);
     res.status(500).json({ success: false, data: false });

@@ -12,7 +12,6 @@ const TodoSchema = new Schema({
         {
             title : {
                 type : String,
-                required : true
             },
             createdDate : {
                 type : Date,
@@ -24,7 +23,7 @@ const TodoSchema = new Schema({
             },
             dueDate : {
                 type : Date ,
-                default : Date.now
+                required : true
             }
         }
     ],

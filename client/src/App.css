@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+body{
+  color: #fff;
+  line-height: 2.5;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar{
+  border-bottom: 2px solid brown;
+  opacity: 0.7;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.navbar-dark .navbar-nav .nav-link{
   color: white;
+  transition: background-color 1s;
+  padding: 5px 2rem;
+  font-family: cursive;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-link:hover{
+  background-color:rgb(255, 248, 248);
+  border-bottom: 3px solid black;
+  color: black !important;
+  font-weight: 300;
+}
+.navbar-brand{
+  font-family: cursive;
+  text-transform: uppercase;
+}
+.form-control{
+  margin: 10px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#home-section{
+  /* background: url(../img/home.jpg); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;}
+
+#home-section .dark-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+#home-section .home-inner{
+  margin-top: 125px;
+}
+
+.card-body{
+  opacity: 0.8;
+}
+
+.fas{
+  color: #0d6efd;
+  border: 5px solid white;
+  border-radius: 10px;
+}    
+
+.btn{
+  transition: background-color 1s;
+}
+
+.btn:hover{
+  background-color: white;
+}
+
+.btn-outline-secondary:hover{
+  background-color: black;
+}
+.btn-outline-secondary{
+  color: wheat;
 }
