@@ -58,16 +58,27 @@ body{
 }    
 
 .btn{
+  padding: 14px;
+  border-radius: unset;
   transition: background-color 1s;
 }
 
-.btn:hover{
-  background-color: white;
-}
+
 
 .btn-outline-secondary:hover{
   background-color: black;
 }
 .btn-outline-secondary{
   color: wheat;
+}
+
+
+.input-el{
+  border-style: double;
+  outline: none;
+}
+
+.nested-input{
+  padding: 6px;
+  margin-right: 5px;
 }

@@ -16,9 +16,19 @@ const Input = () => {
   };
 
   return (
-    <div style={{ marginTop: "100px" }}>
-      <input value={title} onChange={(e) => setTitle(e.target.value)} />
-      <button onClick={inputHandler}>Add Todo</button>
+    <div
+      style={{ marginTop: "100px" }}
+      className="d-flex flex-row justify-content-lg-between"
+    >
+      <input
+        placeholder="Enter Title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        className="input-el"
+      />
+      <button onClick={inputHandler} className="btn btn-success">
+        Add Todo
+      </button>
     </div>
   );
 };

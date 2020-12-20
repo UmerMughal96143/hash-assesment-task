@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteTodoList, getAllTodos } from "../actions/todo";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-const Table = ({ updateHandler , handleNestedView}) => {
+const Table = ({ updateHandler, handleNestedView }) => {
   const dispatch = useDispatch();
-  const { todos, loading, error , nestedTaskData ,refresh } = useSelector((state) => state.TodosState);
+  const { todos, loading, error, nestedTaskData, refresh } = useSelector(
+    (state) => state.TodosState
+  );
   // const remainingTodos = useSelector((state) => state.fetchDataReducer.remainingTodos);
   const [loader, setLoader] = useState(false);
 
@@ -20,10 +22,9 @@ const Table = ({ updateHandler , handleNestedView}) => {
     updateHandler(true, title, id);
   };
 
-
   const nestedViewHandler = (existingItemId) => {
-    handleNestedView(true , existingItemId)
-  }
+    handleNestedView(true, existingItemId);
+  };
 
   // const deleteListHandler = async (id) => {
   //  await dispatch(requestToDeleteTodo(id));
@@ -43,8 +44,8 @@ const Table = ({ updateHandler , handleNestedView}) => {
       <tbody>
         {todos?.todos?.map((item, index) => {
           return (
-            <tr key={index} >
-              <td >{item.title}</td>
+            <tr key={index}>
+              <td>{item.title}</td>
               <td onClick={() => updateListHandler(item.title, item._id)}>
                 <i class="far fa-edit" style={{ cursor: "pointer" }}></i>
               </td>
@@ -54,14 +55,14 @@ const Table = ({ updateHandler , handleNestedView}) => {
                   style={{ color: "red", cursor: "pointer" }}
                 ></i>
               </td>
-              
+
               <td onClick={() => nestedViewHandler(item._id)}>
-              <Link to={`/?item_id=${item._id}`}>
-                <i
-                  class="far fa-plus-square"
-                  style={{ color: "red", cursor: "pointer" }}
-                ></i>
-              </Link>
+                <Link to={`/?item_id=${item._id}`}>
+                  <i
+                    class="far fa-plus-square"
+                    style={{ color: "green", cursor: "pointer" }}
+                  ></i>
+                </Link>
               </td>
             </tr>
           );

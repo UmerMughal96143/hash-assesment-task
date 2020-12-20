@@ -22,14 +22,15 @@ const UpdateInput = ({ existingItemId , childId , existingTitle,stateAfterUpdati
 
   return (
     <div className="d-flex flex-row align-items-center justify-content-center" style={{marginTop : '100px'}}>
-      <input placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
+      <input className="nested-input" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
       <input
+      className="nested-input"
       placeholder="Due Date"
         value={dueDate}
         type="date"
         onChange={(e) => setDueDate(e.target.value)}
       />
-      <button onClick={addNestedTodoListHandler} >Update</button>
+      <button className="btn btn-success" onClick={addNestedTodoListHandler} >Update</button>
     </div>
   );
 };

@@ -4,7 +4,7 @@ const Appbar = () => {
     return (
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" id="main-nav">
         <div class="container">
-            <a href="index.html" class="navbar-brand">LoopLAB</a>
+            <a href="index.html" class="navbar-brand">TODO LIST</a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
