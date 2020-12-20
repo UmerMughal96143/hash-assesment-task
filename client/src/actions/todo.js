@@ -47,7 +47,7 @@ export const deleteTodoList = (id) => async (dispatch) => {
   dispatch({ type: SET_LOADING });
 
   try {
-    const res = await Axios.delete(`/${id}`);
+    await Axios.delete(`/${id}`);
     dispatch({ type: DELETE_TODO_LIST, payload: id });
   } catch (err) {
     dispatch({ type: SET_ERROR, payload: err });
@@ -55,7 +55,7 @@ export const deleteTodoList = (id) => async (dispatch) => {
   }
 };
 
-//UPDATE PARENT TODO LIST 
+//UPDATE PARENT TODO LIST
 
 export const updateExistingTodoTitle = (data, id) => async (dispatch) => {
   dispatch({ type: SET_LOADING });
@@ -69,9 +69,7 @@ export const updateExistingTodoTitle = (data, id) => async (dispatch) => {
   }
 };
 
-//GET NESTED TODOS BY ITS PARENT ID 
-
-
+//GET NESTED TODOS BY ITS PARENT ID
 
 export const getNestedTaskById = (id) => async (dispatch) => {
   dispatch({ type: SET_LOADING });
@@ -91,16 +89,13 @@ export const postNestedTodoTasks = (itemId, data) => async (dispatch) => {
   }
 };
 
-
 //DELTE NESTED TODO TASKS
-
-
 
 export const deleteNestedTasks = (parentId, childId) => async (dispatch) => {
   dispatch({ type: SET_LOADING });
 
   try {
-    const res = await Axios.delete(`/nest/task/${parentId}/${childId}`);
+    await Axios.delete(`/nest/task/${parentId}/${childId}`);
     dispatch({ type: DELETE_NESTED_TASK, payload: childId });
   } catch (err) {
     dispatch({ type: SET_ERROR, payload: err });
@@ -108,7 +103,7 @@ export const deleteNestedTasks = (parentId, childId) => async (dispatch) => {
   }
 };
 
-//UPDATE NESTED TODO MARK AS DONE 
+//UPDATE NESTED TODO MARK AS DONE
 
 export const updateNestedListTasks = (parentId, childId, data) => async (
   dispatch
@@ -116,7 +111,7 @@ export const updateNestedListTasks = (parentId, childId, data) => async (
   dispatch({ type: SET_LOADING });
 
   try {
-    const res = await Axios.put(`/update/${parentId}/${childId}`, data);
+    await Axios.put(`/update/${parentId}/${childId}`, data);
     dispatch({ type: UPDATE_NESTED_TASKS, payload: childId });
   } catch (err) {
     dispatch({ type: SET_ERROR, payload: err });
@@ -124,8 +119,7 @@ export const updateNestedListTasks = (parentId, childId, data) => async (
   }
 };
 
-
-//UPDATE NESTED TODO LIST TITLE DUE 
+//UPDATE NESTED TODO LIST TITLE DUE
 
 export const updateNestedListTasksTitleDueDate = (
   parentId,

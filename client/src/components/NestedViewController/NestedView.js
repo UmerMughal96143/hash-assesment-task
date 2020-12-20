@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postNestedTodoTasks } from "../../actions/todo";
-// import { addTodoList } from "../actions/todo";
-// import { fetchData } from '../redux/actions/todo'
 
 const NestedView = ({ existingItemId }) => {
   const [title, setTitle] = useState("");

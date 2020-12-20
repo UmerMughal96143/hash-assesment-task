@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import Axios from 'axios';
-import {connect, connet} from 'react-redux'
 import Appbar from './components/Appbar'
 import './App.css';
 import Landing from './screens/Landing';
-import { BrowserRouter as Router, Route, Switch ,withRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
 

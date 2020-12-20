@@ -17,7 +17,7 @@ const initialState = {
   todos: {},
   error: {},
   nestedTaskData: null,
-  refresh : false 
+  refresh: false,
 };
 
 export const TodosState = (state = initialState, action) => {
@@ -28,7 +28,7 @@ export const TodosState = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
-        refresh : true 
+        refresh: true,
       };
     case GET_ALL_TODO_LIST:
       return {
@@ -43,7 +43,6 @@ export const TodosState = (state = initialState, action) => {
         loading: false,
       };
     case DELETE_TODO_LIST:
-      console.log(payload);
       return {
         ...state,
         todos: {
@@ -65,17 +64,15 @@ export const TodosState = (state = initialState, action) => {
         loading: false,
       };
     case GET_TASKS_BY_ID:
-      const item = payload;
       const existingItem = state.todos?.todos?.find(
         (item) => item._id == payload
       );
-      console.log(existingItem);
 
       return {
         ...state,
         loading: false,
         nestedTaskData: existingItem?.nestedTodoList,
-        refresh : false 
+        refresh: false,
       };
     case DELETE_NESTED_TASK:
       return {
@@ -94,13 +91,12 @@ export const TodosState = (state = initialState, action) => {
         ...state,
         loading: false,
       };
-      case UPDATE_NESTED_TASKS_TITLE_DUE : 
-      console.log(payload)
+    case UPDATE_NESTED_TASKS_TITLE_DUE:
       return {
-        ...state ,
-        loading : false,
-        nestedTaskData : [...payload]
-      }
+        ...state,
+        loading: false,
+        nestedTaskData: [...payload],
+      };
     case SET_ERROR:
       return {
         ...state,

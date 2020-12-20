@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteTodoList, getAllTodos } from "../../actions/todo";
 import { Link } from "react-router-dom";
 
 const Table = ({ updateHandler, handleNestedView }) => {
   const dispatch = useDispatch();
-  const { todos, loading, error, nestedTaskData, refresh } = useSelector(
+  const { todos,refresh } = useSelector(
     (state) => state.TodosState
   );
 
