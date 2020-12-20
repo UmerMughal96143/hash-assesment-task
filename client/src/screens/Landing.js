@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Input from "../components/Input";
+import Input from "../components/FirstViewController/Input";
 import NestedDataTable from "../components/NestedViewController/NestedDataTable";
 import NestedView from "../components/NestedViewController/NestedView";
-import UpdateInput from "../components/NestedViewController/UpdateInput";
-import Table from "../components/Table";
-import UpdatedInput from "../components/UpdatedInput";
+import NestedUpdateInput from "../components/NestedViewController/UpdateInput";
+import Table from "../components/FirstViewController/Table";
+import UpdatedInput from "../components/FirstViewController/UpdatedInput";
 
 const Landing = ({ existingItemId }) => {
   const [updateState, setUpdateState] = useState(false);
@@ -21,9 +20,6 @@ const Landing = ({ existingItemId }) => {
     existingItemIdForNestedView,
     setExistingItemIdForNestedView,
   ] = useState(false);
-  //   const dispatch = useDispatch();
-
-  //   console.log('Landing rendered')
 
   const updateHandler = (data, title, id) => {
     setUpdateState(data);
@@ -76,7 +72,7 @@ const Landing = ({ existingItemId }) => {
           {nestedView && !updateInputComponent ? (
             <NestedView existingItemId={existingItemId} />
           ) : updateInputComponent ? (
-            <UpdateInput
+            <NestedUpdateInput
               childId={existingIdForNestedTodo}
               existingTitle={existingTitleForNestedTodo}
               existingItemId={existingItemId}

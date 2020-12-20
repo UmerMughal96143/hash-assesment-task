@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { postNestedTodoTasks, updateNestedListTasksTitleDueDate } from "../../actions/todo";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { updateNestedListTasksTitleDueDate } from "../../actions/todo";
 
-const UpdateInput = ({ existingItemId , childId , existingTitle,stateAfterUpdationHandler}) => {
+const NestedUpdateInput = ({ existingItemId , childId , existingTitle,stateAfterUpdationHandler}) => {
   const [title, setTitle] = useState(existingTitle);
   const [dueDate, setDueDate] = useState("");
   const dispatch = useDispatch();
@@ -36,4 +36,4 @@ const UpdateInput = ({ existingItemId , childId , existingTitle,stateAfterUpdati
 };
 
 
-export default UpdateInput ;
+export default NestedUpdateInput ;

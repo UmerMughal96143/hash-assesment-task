@@ -13,6 +13,8 @@ import {
 } from "./constants";
 import Axios from "axios";
 
+//GET ALL TODOS
+
 export const getAllTodos = () => async (dispatch) => {
   dispatch({ type: SET_LOADING });
 
@@ -24,6 +26,8 @@ export const getAllTodos = () => async (dispatch) => {
     console.log(err);
   }
 };
+
+//POST TODO LIST PARENT
 
 export const addTodoList = (data) => async (dispatch) => {
   dispatch({ type: SET_LOADING });
@@ -37,6 +41,8 @@ export const addTodoList = (data) => async (dispatch) => {
   }
 };
 
+//DELTE PARENT TODO LIST
+
 export const deleteTodoList = (id) => async (dispatch) => {
   dispatch({ type: SET_LOADING });
 
@@ -49,6 +55,8 @@ export const deleteTodoList = (id) => async (dispatch) => {
   }
 };
 
+//UPDATE PARENT TODO LIST 
+
 export const updateExistingTodoTitle = (data, id) => async (dispatch) => {
   dispatch({ type: SET_LOADING });
 
@@ -60,6 +68,10 @@ export const updateExistingTodoTitle = (data, id) => async (dispatch) => {
     console.log(err);
   }
 };
+
+//GET NESTED TODOS BY ITS PARENT ID 
+
+
 
 export const getNestedTaskById = (id) => async (dispatch) => {
   dispatch({ type: SET_LOADING });
@@ -79,6 +91,11 @@ export const postNestedTodoTasks = (itemId, data) => async (dispatch) => {
   }
 };
 
+
+//DELTE NESTED TODO TASKS
+
+
+
 export const deleteNestedTasks = (parentId, childId) => async (dispatch) => {
   dispatch({ type: SET_LOADING });
 
@@ -90,6 +107,8 @@ export const deleteNestedTasks = (parentId, childId) => async (dispatch) => {
     console.log(err);
   }
 };
+
+//UPDATE NESTED TODO MARK AS DONE 
 
 export const updateNestedListTasks = (parentId, childId, data) => async (
   dispatch
@@ -104,6 +123,9 @@ export const updateNestedListTasks = (parentId, childId, data) => async (
     console.log(err);
   }
 };
+
+
+//UPDATE NESTED TODO LIST TITLE DUE 
 
 export const updateNestedListTasksTitleDueDate = (
   parentId,

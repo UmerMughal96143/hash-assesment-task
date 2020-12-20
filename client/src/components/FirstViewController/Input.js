@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodoList } from "../actions/todo";
-// import { fetchData } from '../redux/actions/todo'
+import { addTodoList } from "../../actions/todo";
 
 const Input = () => {
   const [title, setTitle] = useState("");

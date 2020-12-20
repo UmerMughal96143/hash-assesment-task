@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { deleteNestedTasks, getNestedTaskById, updateNestedListTasks } from "../../actions/todo";
@@ -7,7 +6,7 @@ import Moment from "react-moment";
 
 const NestedDataTable = ({ existingItemId , nestedUpdateHandler}) => {
   const dispatch = useDispatch();
-  const { nestedTaskData, loading, error } = useSelector(
+  const { nestedTaskData } = useSelector(
     (state) => state.TodosState
   );
 
@@ -32,7 +31,7 @@ const NestedDataTable = ({ existingItemId , nestedUpdateHandler}) => {
     nestedUpdateHandler(title,id)
   }
   return (
-    <table class="table table-dark" style={{ marginTop: "150px" }}>
+    <table className="table table-dark" style={{ marginTop: "150px" }}>
       <thead>
         <tr>
           <th scope="col">Mark As Done</th>
@@ -51,22 +50,22 @@ const NestedDataTable = ({ existingItemId , nestedUpdateHandler}) => {
                 <td>
                   {item.markAsDone ? (
                     <i
-                      class="far fa-check-circle"
+                      className="far fa-check-circle"
                       style={{ cursor: "pointer", color: "green" }}
                       
                     ></i>
                   ) : (
-                    <i class="fas fa-times" style={{cursor: "pointer"}} onClick={() => markAsDoneHandler(item._id)}></i>
+                    <i className="fas fa-times" style={{cursor: "pointer"}} onClick={() => markAsDoneHandler(item._id)}></i>
                   )}
                 </td>
                 <td>{item.title}</td>
                 <td>{<Moment date={item.dueDate} />}</td>
                 <td onClick={() => updateExistedTodoNestedTask(item.title , item._id)}>
-                  <i class="far fa-edit" style={{ cursor: "pointer" }}></i>
+                  <i className="far fa-edit" style={{ cursor: "pointer" }}></i>
                 </td>
                 <td onClick={() => deleteTaskHandler(item._id)}>
                   <i
-                    class="fas fa-backspace"
+                    className="fas fa-backspace"
                     style={{ color: "red", cursor: "pointer" }}
                   ></i>
                 </td>
