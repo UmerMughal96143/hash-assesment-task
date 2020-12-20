@@ -18,9 +18,10 @@ const UpdatedInput = ({ existingTitle, listId, backToInputHandler }) => {
   useEffect(() => {}, []);
 
   return (
-    <div style={{ marginTop: "100px" }}>
-      <input value={title} onChange={(e) => setTitle(e.target.value)} />
-      <button onClick={inputHandler}>Update</button>
+    <div className="d-flex flex-row justify-content-lg-between" style={{ marginTop: "100px" }}>
+      <input 
+        className="input-el" value={title} onChange={(e) => setTitle(e.target.value)} />
+      <button className="btn btn-success" onClick={inputHandler}>Update</button>
     </div>
   );
 };
