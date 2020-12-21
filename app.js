@@ -18,6 +18,10 @@ dotenv.config({ path: "./config/config.env" });
 
 connectDb();
 
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('client/build'))
+}
+
 app.use("/api/v1/todo", todoRoute);
 
 const PORT = process.env.PORT || 5000;
