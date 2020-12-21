@@ -3,10 +3,17 @@
   "version": "1.0.0",
   "description": "Assesment Task",
   "main": "index.js",
+
+  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app"
+    "start": "nodemon app.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build",
+    "start:dev": "nodemon app.js"
   },
+  "engines": {
+    "node": "10.16.0"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/UmerMughal96143/hash-assesment-task.git"
